@@ -41,6 +41,7 @@ public class GameMaster {
     private void playGeneration() {
 
         for (int x = 0; x < currentGrid.getGridX(); x++) {
+
             for (int y = 0; y < currentGrid.getGridY(); y++) {
                 
                 int[][] cellsToCheck = {
@@ -61,26 +62,35 @@ public class GameMaster {
                     int yPos = cellsToCheck[c][1];
 
                     // Only check cells that are within the grid
-                    if (xPos > 0 && xPos < currentGrid.getGridX() && yPos > 0 && yPos <currentGrid.getGridY()) {
+                    if (xPos >= 0 && xPos < currentGrid.getGridX() && yPos >= 0 && yPos <currentGrid.getGridY()) {
                         if (currentGrid.getCell(xPos, yPos).isAlive()) {
                             nearbyAliveCells ++;
                         }
                     }
                 }
-
-                if (nearbyAliveCells == 0) {
+                // Solitude
+                if (nearbyAliveCells <= 1) {
                     nextGrid.killCell(x, y);
                 }
-
+                // Overpopulation
                 else if (nearbyAliveCells >= 4) {
                     nextGrid.killCell(x, y);
                 }
-
+                // IDK, community suport wiht 3
                 else if (nearbyAliveCells == 3) {
                     nextGrid.populateCell(x, y);
                 }
 
-                // Else dont need to do anything
+                else {
+                    // ELse foollow current grid
+
+                    if (currentGrid.getCell(x, y).isAlive()) {
+                        nextGrid.populateCell(x, y);
+                    }
+
+                    // else, by default cells are dead
+                }
+
 
             }
 

@@ -32,54 +32,5 @@ public class Main {
         game.setStartingCells(startingCells);
 
         game.playGame();
-
     }
 }
-
-
-/*
- 
-
-
-// Classes:
-
-1. Cell (DONE)
-variables: boolean alive, int x-axis, int y-axis
-methods: get and set whether a cell is alive.
-
-2. Grid (DONE)
-variables: An array of cells Cell[]
-instantiate: A grid, get parameters, what is the size of grid
-
-
-3. Game:
-
-variables: two Grids. currentGrid , and afterGrid, int generation, final int GAMES = 5
-
-Game (File)
-
-
-method: Method -> setGame: read the file, and get what is the starting point, and then use the set-cell method to set the cell alive
-
-private method --> playGeneration (currentGrid, afterGrid) {   loop through the evaluator   }
-
-public playGame ();
-    for (gen : GAMES) {
-
-    playGeneration ()
-
-        currentGrid = afterGrid
-        afterGrid
-    
-}
-
-
-4. Evalutor:
-
-
-evaluate ()
-
-
-5. File Reader (DONE)
-
- */
