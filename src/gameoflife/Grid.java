@@ -3,8 +3,13 @@ package gameoflife;
 public class Grid {
     
     private Cell[][] cells;
+    private int gridX;
+    private int gridY;
 
     public Grid(int gridX, int gridY) {
+
+        this.gridX  = gridX;
+        this.gridY = gridY;
         this.cells = new Cell[gridX][gridY];
 
         // Initialise the grid with dead cells
@@ -28,16 +33,24 @@ public class Grid {
         this.cells[x][y].setAlive(true);
     }
 
+    public int getGridX() {
+        return gridX;
+    }
+
+    public int getGridY() {
+        return gridY;
+    }
+
     @Override
     public String toString() {
 
         String gridString = "\n";
 
-        for (int y = 0; y < cells.length; y++) {
+        for (int y = 0; y < this.gridY; y++) {
 
             String row = "";
 
-            for (int x = 0; x < cells[0].length; x++) {
+            for (int x = 0; x < this.gridX; x++) {
                 if (cells[x][y].isAlive()) {
                     row += "[*]";
                 }

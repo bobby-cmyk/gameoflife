@@ -31,9 +31,7 @@ public class Main {
         // Start game;
         game.setStartingCells(startingCells);
 
-        Grid currentGrid = game.getCurrentGrid();
-
-        System.out.println(currentGrid);
+        game.playGame();
 
     }
 }
