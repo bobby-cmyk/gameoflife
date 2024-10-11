@@ -8,12 +8,20 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException{
 
+        if (args.length == 0) {
+            System.out.println("Please include path of GoL file");
+            System.exit(-1);
+        }
+        
+        String filePath = args[0];
+        
         Instruction instruction = new Instruction();
-        instruction.read("gol/toad.gol");
+        instruction.read(filePath);
 
         // Grid size for the game
         int gridX = instruction.getGridX();
         int gridY = instruction.getGridY();
+
         // Starting cells for the game
         ArrayList<int[]> startingCells = instruction.getStartingCells();
 

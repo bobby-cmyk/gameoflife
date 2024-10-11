@@ -6,8 +6,6 @@ public class GameMaster {
     
     public Grid currentGrid;
     public Grid nextGrid;
-    // Track the current generation
-    public int currentGen;
     // Number of generations to loop through
     private final int GENS = 5;
     
@@ -28,7 +26,25 @@ public class GameMaster {
         }
     }
 
+    /*
+ 
+
+    public void playGame(int numberOfGenerations) {
+        
+    }
+
+    private void playGeneration() {
+
+    }
+
+     */
+
+
     public Grid getCurrentGrid() {
         return this.currentGrid;
+    }
+
+    public Grid getNextGrid() {
+        return this.nextGrid;
     }
 }
