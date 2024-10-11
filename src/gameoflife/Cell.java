@@ -7,6 +7,11 @@ public class Cell {
     public Cell(boolean alive) {
         this.alive = alive;
     }
+    // By default cell should be dead
+    public Cell() {
+        this(false);
+    }
+
     // Should be able to set and get from the grid.
     public boolean isAlive() {
         return alive;

@@ -2,39 +2,30 @@ package gameoflife;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException{
 
-        Grid grid = new Grid(3,3);
-
-        System.out.println(grid.getCell(0, 0));
-
-        System.out.println(">>> Action: Set cell");
-
-        grid.setCell(0, 0, new Cell(true));
-        
-        System.out.println(grid.getCell(0, 0));
-
-        System.out.println(">>> Action: Kill cell");
-        grid.getCell(0, 0).setAlive(false);
-
-        System.out.println(grid.getCell(0,0));
-
         Instruction instruction = new Instruction();
-
-        System.out.println("Read file");
-
         instruction.read("gol/toad.gol");
 
-        System.out.printf("Grid X: %d\n", instruction.getGridX());
+        // Grid size for the game
+        int gridX = instruction.getGridX();
+        int gridY = instruction.getGridY();
+        // Starting cells for the game
+        ArrayList<int[]> startingCells = instruction.getStartingCells();
 
-        System.out.printf("Grid Y: %d\n", instruction.getGridY());
+        // Initialise game master
+        GameMaster game = new GameMaster(gridX, gridY);
 
-        for (int[] position : instruction.getStartingCells()) {
-            System.out.println(position[0] + ":" + position[1]);
-        }
+        // Start game;
+        game.setStartingCells(startingCells);
+
+        Grid currentGrid = game.getCurrentGrid();
+
+        System.out.println(currentGrid);
 
     }
 }
@@ -83,6 +74,6 @@ public playGame ();
 evaluate ()
 
 
-5. File Reader
+5. File Reader (DONE)
 
  */
